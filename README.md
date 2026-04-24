@@ -130,8 +130,8 @@ Now your backend app is ready in GitHub!
 sudo yum update -y
 
 # Install Node.js
-sudo curl -fsSL https://rpm.nodesource.com/setup_18.x | bash -
-yum install -y nodejs
+sudo curl -fsSL https://rpm.nodesource.com/setup_20.x | bash -
+sudo yum install -y nodejs
 
 # Install dev tools (needed for some npm packages)
 sudo yum install -y gcc-c++ make git
@@ -140,7 +140,7 @@ sudo yum install -y gcc-c++ make git
 sudo yum install -y nginx
 
 # Configure Nginx to proxy to your Node.js application
-sudo cat > /etc/nginx/conf.d/app.conf << 'EOF'
+sudo tee /etc/nginx/conf.d/app.conf > /dev/null << 'EOF'
 server {
     listen 80;
     server_name _;
