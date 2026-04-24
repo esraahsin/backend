@@ -54,7 +54,27 @@ This guide explains how to **set up a Node.js app**, **configure environment var
 Before deploying:
 
 1. Open your project's `.env` file
-2. Update the variables with your RDS credentials:
+2. Choose your storage mode:
+
+   Use JSON file storage (no database required):
+
+   ```bash
+   USE_JSON_STORAGE=true
+   ```
+
+   Or use MySQL/RDS:
+
+   ```bash
+   USE_JSON_STORAGE=false
+   DB_HOST=your-rds-endpoint
+   DB_USER=your-rds-username
+   DB_PASSWORD=your-rds-password
+   DB_NAME=your-database-name
+   ```
+
+   When `USE_JSON_STORAGE=true`, users are stored in `data/users.json`.
+
+3. If you use MySQL/RDS, update the variables with your RDS credentials:
 
    ```bash
    DB_HOST=your-rds-endpoint
@@ -63,7 +83,7 @@ Before deploying:
    DB_NAME=your-database-name
    ```
 
-3. Save the file.
+4. Save the file.
 
 ---
 
